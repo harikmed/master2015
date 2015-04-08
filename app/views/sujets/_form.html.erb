@@ -1,7 +1,7 @@
 <%= form_for(@sujet) do |f| %>
   <% if @sujet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sujet.errors.count, "error") %> prohibited this sujet from being saved:</h2>
+      <h2><%= pluralize(@sujet.errors.count, t('error')) %> prohibited this sujet from being saved:</h2>
 
       <ul>
       <% @sujet.errors.full_messages.each do |msg| %>

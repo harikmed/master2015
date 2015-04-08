@@ -10,6 +10,7 @@ class SujetsController < ApplicationController
   # GET /sujets/1
   # GET /sujets/1.json
   def show
+    @titre =t('hello ') 
   end
 
   # GET /sujets/new
@@ -28,7 +29,7 @@ class SujetsController < ApplicationController
 
     respond_to do |format|
       if @sujet.save
-        format.html { redirect_to @sujet, notice: 'Sujet was successfully created.' }
+        format.html { redirect_to @sujet, notice: t('succes_created') }
         format.json { render action: 'show', status: :created, location: @sujet }
       else
         format.html { render action: 'new' }

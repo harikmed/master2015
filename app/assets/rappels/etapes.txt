@@ -16,3 +16,13 @@
 <h3><%=link_to 'Nouveau sujet :', new_sujet_path %></h3>
 <h3><%=link_to 'Listes des sujets ', sujets_path %></h3>
 =end	
+##### ajout des criteres de validation (javascript dans le formulaire) DANS LE MODELE DE SUJET
+=begin
+
+	validates :titre , 
+		:presence => true  , 
+		:length   => { :maximum => 50 , :minimum => 2 }
+	validates :contenu , 
+			   :presence => true , 
+			   :length => {:maximum => 200 , :minimum => 6}
+=end 
