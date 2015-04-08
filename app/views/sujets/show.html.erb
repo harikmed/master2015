@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @sujet.titre %>
+</p>
+
+<p>
+  <strong>Contenu:</strong>
+  <%= @sujet.contenu %><br>
+  <span>créeé le : <%=time_ago_in_words @sujet.created_at %></span>
+</p>
+
+<%= link_to 'Edit', edit_sujet_path(@sujet) %> |
+<%= link_to 'Back', sujets_path %>

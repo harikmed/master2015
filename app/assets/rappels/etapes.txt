@@ -1,0 +1,7 @@
+#### avant de commencer : une idée sur l'internationalisation
+#aller dans le fichier : en.yml et mettez un un mot hello :'bienvenue'
+#la ou tu veut l'afficher met <%=t('hello')%>
+#pour les messages automatique de rails vers un certain langage fr par exemple, il faut :
+##### creer une fichier fr.yml dans le dossier config/locales et 
+##### dans application.rb (tjrs dans config/) decommenter  une ligne .... :de et changer vers :fr
+####" n'oublier pas de redemarre le serveur "
