@@ -57,3 +57,57 @@
 
 
 =end 
+#### ajout des comements : rails g modele Comment sujet_id:integer , commentaire:text
+rake db:migrate 
+dans les modeles ajout de has_many commets (avec s)
+belongs_to sujet (sans s )
+n'oublier pas de modifier le routes.rb , pour associer les commentaires au posts en routage 
+  resources :sujets do
+    resources :comments
+  end
+  par exemple: 
+=begin
+   sujet_comments_path 	GET 	/sujets/:sujet_id/comments(.:format) 	comments#index
+	POST 	/sujets/:sujet_id/comments(.:format) 	comments#create
+new_sujet_comment_path 	GET 	/sujets/:sujet_id/comments/new(.:format) 	comments#new
+edit_sujet_comment_path
+=end
+###le code pour lister les commentaires d'un sujet dans la page show.html.erb du sujet @sujet:
+<h3>Les commentaires: </h3>	
+<% @sujet.comments.each do |m|  %>
+<p><%= m %></p>
+<% end %>
+
+### ajout du formulaire d'ajout du commentaire :
+<h3>Ajouter les commentaires : </h3>
+
+<%= form_for([@sujet, @sujet.comments.build]) do |f| %>
+<p><%= f.label :commentaire %>: <%= f.text_area :commentaire , cols: 40, rows: 10, :placeholder =>'Entrer un commentaire...' %></p>
+<p><%= f.submit 'Ajouter le commentaire '%></p>
+<% end %>
+####### mais ce dernier necessite la creation du controller des comments : 
+rails g controller comments (avec s ) create destroy 
+## n'oublie pas  (dans comment.rb)
+def sujet_params
+      params.require(:sujet).permit(:titre, :contenu)
+    end
+
+
+    qui sera utiliser  dans :
+
+    def create
+	#recuperer le sujet du commentaire 
+	 @sujet=Sujet.find(params[:sujet_id])
+	
+	@comment=@sujet.comments.build(comment_params) #build equivalent de .new  ensuite on doit faire .save ou faire .create au lieu de build suivi par save
+  
+    @comment.save
+   
+	redirect_to @sujet
+
+
+end 
+###########remarque importante ######### pour recuperer le 'comment' à supprimer ainsi que son sujet_id , (n'oublie pas de mettre resource :comment pour router les comment_path.... dans link_to delete par exemple )
+	@comment=Comment.find(params[:id])
+	 @sujet=@comment.sujet
+end

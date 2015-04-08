@@ -1,5 +1,12 @@
 Monblog::Application.routes.draw do
-  resources :sujets
+  get "comments/create"
+  get "comments/destroy"
+  get "comments/new"
+  get "comments/show"
+  resources :sujets do
+    resources :comments
+  end
+  resources :comments
 root 'sujets#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

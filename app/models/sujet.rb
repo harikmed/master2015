@@ -1,4 +1,5 @@
 class Sujet < ActiveRecord::Base
+	has_many :comments 
 	validates :titre , 
 		:presence => true  , 
 		:length   => { :maximum => 50 , :minimum => 2 }
