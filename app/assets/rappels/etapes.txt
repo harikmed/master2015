@@ -5,3 +5,14 @@
 ##### creer une fichier fr.yml dans le dossier config/locales et 
 ##### dans application.rb (tjrs dans config/) decommenter  une ligne .... :de et changer vers :fr
 ####" n'oublier pas de redemarre le serveur "
+#modification du fichier index.html.erb ###########
+=begin
+<h1>Listes des sujets </h1>
+<% @sujets.each do |s|%>
+<p><%= link_to s.titre , s %></p>
+<blockquote><%= truncate s.contenu %>(<%=link_to 'Modifier' , edit_sujet_path(s) %> |
+ <%=link_to 'Supprimer', s,:method => :delete , :data => {:confirm =>  'vous etes sur de vouloir supprimer cet élément ?'} %> )</blockquote>
+<% end %>
+<h3><%=link_to 'Nouveau sujet :', new_sujet_path %></h3>
+<h3><%=link_to 'Listes des sujets ', sujets_path %></h3>
+=end	
