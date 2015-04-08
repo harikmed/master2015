@@ -26,3 +26,34 @@
 			   :presence => true , 
 			   :length => {:maximum => 200 , :minimum => 6}
 =end 
+
+###### ajout du render _form.html.erb dans views/sujets
+##avec les messages d'erreurs 
+=begin 
+<%= form_for(@sujet) do |f| %>
+<div>
+  <% if @sujet.errors.any? %>
+  <%= pluralize(@sujet.errors.count,t('error')) %> 
+  <ul>
+  <% @sujet.errors.full_messages.each do |m| %>
+<li><%= m %></li>
+  </ul>
+  <% end %>
+  <% end %>
+
+</div>
+<div>
+  <%=f.label :titre %>
+  <%=f.text_field :titre %>
+</div>
+<div>
+<%= f.label :contenu %>
+<%= f.text_area :contenu %>
+</div>
+<div>
+  <%= f.submit  'Valider'%>
+</div>
+<% end %>
+
+
+=end 

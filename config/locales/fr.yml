@@ -3,6 +3,7 @@ fr:
   hello: "bienvenue dans notre blog"
   succes_created: "Sujet créer avec succès."
   error: "erreur"
+  back: "Retour"
   date:
     abbr_day_names:
     - dim
