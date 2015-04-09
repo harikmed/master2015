@@ -1,4 +1,7 @@
 Monblog::Application.routes.draw do
+  get "/inscription" =>'users#new'
+  get "/connexion" => 'sessions#new'
+  get "/deconnexion" => 'sessions#destroy'
   get "comments/create"
   get "comments/destroy"
   get "comments/new"
@@ -9,6 +12,7 @@ Monblog::Application.routes.draw do
   resources :comments
 root 'sujets#index'
 resources :users
+resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -160,3 +160,32 @@ def create
 end 
 
 =end 
+###remarque importante 
+User.find_by_login(params[:session][:login]) recupere l'user ayant where login=....,  <%=form_for(:session, url: sessions_path))%># si tu fait sessions_path et form methode post alors tu cibles def create de session
+ou=@user)User.where(login: 'harik', passe: 'test') mais elle retourne un tableau vide si rien donc verifie par @user.empty?
+#####creation de session => session[:login]=@user.first.login
+## les helpers sont des module autoload dans les vues mais si on veut les utiliser dans les controllers il mettre 
+include SessionsHelper
+#####Implementation dans session helper creation des cookies et session 
+module SessionsHelper
+   
+def connecter user
+  session[:login]=user.login
+  session[:statut]=user.statut
+  cookies[:user]={value: user.id, exprires: 1.minutes.from_now }
+
+  
+end
+def current_user= user
+  @current_user=user
+end
+public 
+def current_user
+  User.find(cookies[:user])
+end
+
+
+end
+### et dans sujets/index.html.erb voici un exemple d'utilisation de ce  helper 
+  <h4>Bienvenue  <%= session[:login]%> id est <%= cookies[:user]%> d'après le helper <%= current_user.login %></h4>
+  #### fin :)

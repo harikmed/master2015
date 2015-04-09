@@ -1,0 +1,16 @@
+<%= form_for(:session , url: sessions_path ) do |f| %>
+<%# j'aurais du mettre @session (qui necessite @session=Session.new dans def create end de session "   %>
+<div>
+	<%=f.label :login %>
+	<%=f.text_field :login%>
+
+</div>
+<div>
+	<%=f.label :passe , 'Mot de passe ' %>
+	<%=f.text_field :passe%>
+
+</div>
+<div>
+	<%=f.submit %>
+</div>
+<% end %>

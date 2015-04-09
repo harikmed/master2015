@@ -1,6 +1,13 @@
 
 
 <marquee><%=t('hello')%></marquee>
+<p>Bienvenue <%= flash[:notice] %></p> 
+<% if session[:login]
+
+  %>
+  <h4>Bienvenue  <%= session[:login]%> id est <%= cookies[:user]%> d'après le helper <%= current_user.login %></h4>
+<% end %>
+  
 Titre session  <%=session[:titre]%>
 <h1>Listes des sujets </h1>
 <% @sujets.each do |s|%>
