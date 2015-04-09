@@ -45,4 +45,4 @@
   <% end %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate @users, :previous_label => 'Précédent', :next_label => 'Suivant' %>
