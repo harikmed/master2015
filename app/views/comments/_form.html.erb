@@ -1,0 +1,4 @@
+<%= form_for([@sujet, Comment.new]) do |f| %>
+<p><%= f.label :commentaire %>: <%= f.text_area :commentaire , cols: 40, rows: 10, :placeholder => 'Entrer un commentaire...' %></p>
+<p><%= f.submit 'Ajouter le commentaire '%></p>
+<% end %>

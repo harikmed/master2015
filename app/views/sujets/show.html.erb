@@ -15,15 +15,15 @@
 <%= link_to 'Retour aux sujets', sujets_path %>
 <%=link_to 'Supprimer',@sujet,:method => :delete , :data => {:confirm => 'Vous etes sur de vouloir supprimer cet élément? '}%>
 <h3>Les commentaires: </h3>
+
 il y a <%= pluralize(@sujet.comments.count,'commentaire')%>
+<h3><%= flash[:error] %></h3>
 <% @sujet.comments.each do |m|  %>
+
+<p><%=m%></p>
 <p><%= m.commentaire %> | <%= time_ago_in_words m.created_at%> | <%=link_to 'Supprimer', m  ,:method => :delete ,:data => {:confirm => 'supprimer ?'}  %></p>
 <% end %>
 
 <h3>Ajouter les commentaires : </h3>
 
-<%= form_for([@sujet, @sujet.comments.build]) do |f| %>
-<p><%= f.label :commentaire %>: <%= f.text_area :commentaire , cols: 40, rows: 10, :placeholder => 'Entrer un commentaire...' %></p>
-<p><%= f.submit 'Ajouter le commentaire '%></p>
-<% end %>
-<p><%=@param %></p>
+<%= render 'comments/form'%>

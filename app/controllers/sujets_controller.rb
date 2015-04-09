@@ -1,23 +1,23 @@
 class SujetsController < ApplicationController
   before_action :set_sujet, only: [:show, :edit, :update, :destroy]
-
   # GET /sujets
   # GET /sujets.json
   def index
     @sujets = Sujet.all
-  end
 
+  end
   # GET /sujets/1
   # GET /sujets/1.json
   def show
     @titre =t('hello ') 
-  end
 
+   
+  end
   # GET /sujets/new
   def new
     @sujet = Sujet.new
-  end
 
+  end
   # GET /sujets/1/edit
   def edit
   end
@@ -26,7 +26,6 @@ class SujetsController < ApplicationController
   # POST /sujets.json
   def create
     @sujet = Sujet.new(sujet_params)
-
     respond_to do |format|
       if @sujet.save
         format.html { redirect_to @sujet, notice: t('succes_created') }
@@ -66,6 +65,7 @@ class SujetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sujet
       @sujet = Sujet.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

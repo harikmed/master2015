@@ -1,8 +1,7 @@
 class Comment < ActiveRecord::Base
 	belongs_to :sujet
-
-	def to_s
-	return "++++++++++#{@sujet_id}"
-	end
+validates :commentaire, :presence => true , 
+			:length=>{:minimum => 3 }
+	
 
 end

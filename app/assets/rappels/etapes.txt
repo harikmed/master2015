@@ -111,3 +111,33 @@ end
 	@comment=Comment.find(params[:id])
 	 @sujet=@comment.sujet
 end
+#### si le commentaire est non valide :
+dans le comment_controller#create 
+il faut mettre :
+=begin 
+def create
+	
+		#recuperer le sujet du commentaire 
+	 @sujet=Sujet.find(params[:sujet_id])
+	session[:titre]=@sujet.titre
+	@comment=@sujet.comments.create(comment_params)
+  
+   respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @sujet, notice: t('succes_created') }
+        format.json { render action: 'show', status: :created, location: @sujet }
+      else
+      	flash[:error] =@comment.errors.full_messages.join(',').gsub(','," et le ")
+      	#######j en'ai ajouter un message flash , ensuite rediriger vers @sujet : le sujet en cours (son show) ,
+      	###### et dans le show.html.erb de sujet je fais :
+      	######## je fais <h3><%= flash[:error] %></h3>
+        format.html { redirect_to @sujet}
+       # format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+
+    end
+
+
+end 
+
+=end 

@@ -1,7 +1,7 @@
 
 
 <marquee><%=t('hello')%></marquee>
-
+Titre session  <%=session[:titre]%>
 <h1>Listes des sujets </h1>
 <% @sujets.each do |s|%>
 <p><%= link_to s.titre , s %></p>
