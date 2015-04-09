@@ -189,3 +189,4 @@ end
 ### et dans sujets/index.html.erb voici un exemple d'utilisation de ce  helper 
   <h4>Bienvenue  <%= session[:login]%> id est <%= cookies[:user]%> d'après le helper <%= current_user.login %></h4>
   #### fin :)
+  ##mise au point du helper : creation d'une varaible static @@current_user et ses accesseur

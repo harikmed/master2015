@@ -1,0 +1,7 @@
+<div style="background:red;color:white;height:30px;">
+<% if est_connecter? %>
+<div>Bienvenue <%= current_user.login %></div>
+<% else %>
+<div>Non connecté </div>
+<% end %>
+</div>
