@@ -20,7 +20,7 @@ il y a <%= pluralize(@sujet.comments.count,'commentaire')%>
 <h3><%= flash[:error] %></h3>
 <% @sujet.comments.each do |m|  %>
 
-<p><%=m%></p>
+
 <p><%= m.commentaire %> | <%= time_ago_in_words m.created_at%> | <%=link_to 'Supprimer', m  ,:method => :delete ,:data => {:confirm => 'supprimer ?'}  %></p>
 <% end %>
 

@@ -136,6 +136,25 @@ def create
       end
 
     end
+    ###creation du formulaire pour user 
+=begin
+    <div class="field">
+    <%= f.label :statut  %><br>
+   <%= f.label 'Admin'  %> <%= f.radio_button :statut , 'admin' %>
+       <%= f.label 'Enregistré'  %>   <%= f.radio_button :statut , 'enregistré' %>
+           
+  </div>
+  <div>
+ <%= f.label 'ville' %>
+<%= f.select(:statut , [[:Rabat,1],[:Casablanca,2]]) %>
+</div>
+ <div>
+ <%= f.label 'villes' %>
+<%= f.check_box(:statut) %>
+</div>
+=end 
+
+    #####
 
 
 end 

@@ -14,7 +14,7 @@ def create
   
    respond_to do |format|
       if @comment.save
-        format.html { redirect_to @sujet, notice: t('succes_created') }
+        format.html { redirect_to @sujet, notice: 'Commentaires cree avec succes' }
         format.json { render action: 'show', status: :created, location: @sujet }
       else
       	flash[:error] =@comment.errors.full_messages.join(',').gsub(','," et le ")
