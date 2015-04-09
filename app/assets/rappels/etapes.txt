@@ -190,3 +190,10 @@ end
   <h4>Bienvenue  <%= session[:login]%> id est <%= cookies[:user]%> d'après le helper <%= current_user.login %></h4>
   #### fin :)
   ##mise au point du helper : creation d'une varaible static @@current_user et ses accesseur
+  ## ajout de <%=link_to 'deconnecter' , deconnexion_path %>
+  pour se deconnecter
+
+   def destroy
+    deconnecter 
+    redirect_to connexion_path
+  end

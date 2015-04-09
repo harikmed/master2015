@@ -13,10 +13,11 @@ def current_user
 	@@current_user
 end
 def est_connecter?
-!@@current_user.nil? 
+!@@current_user.nil? && session  
 end
 
 def deconnecter
+	reset_session
 cookies=nil
 session=nil
 @@current_user=nil

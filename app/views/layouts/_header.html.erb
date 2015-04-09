@@ -1,7 +1,9 @@
 <div style="background:red;color:white;height:30px;">
 <% if est_connecter? %>
 <div>Bienvenue <%= current_user.login %></div>
+<%=link_to 'deconnecter' , deconnexion_path %>
 <% else %>
 <div>Non connecté </div>
+
 <% end %>
 </div>

@@ -20,6 +20,8 @@ end
   end
 
   def destroy
+  	deconnecter 
+  	redirect_to connexion_path
   end
 def user_params
      
